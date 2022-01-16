@@ -30,6 +30,11 @@ const userNotFound = {
   message: 'User does not exist',
 };
 
+const unregisteredCategory = {
+  status: StatusCodes.BAD_REQUEST,
+  message: '"categoryIds" not found',
+};
+
 module.exports = {
   existingEmail,
   unregisteredUser,
@@ -37,4 +42,5 @@ module.exports = {
   unauthorized,
   invalidToken,
   userNotFound,
+  unregisteredCategory,
 };
