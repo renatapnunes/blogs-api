@@ -7,5 +7,6 @@ const userRouter = express.Router({ mergeParams: true });
 
 userRouter.post('/', createController);
 userRouter.get('/', auth, readController);
+userRouter.get('/:id', auth, readController);
 
 module.exports = userRouter;

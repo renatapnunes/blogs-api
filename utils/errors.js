@@ -25,10 +25,16 @@ const invalidToken = {
   message: 'Expired or invalid token',
 };
 
+const userNotFound = {
+  status: StatusCodes.NOT_FOUND,
+  message: 'User does not exist',
+};
+
 module.exports = {
   existingEmail,
   unregisteredUser,
   invalidPassword,
   unauthorized,
   invalidToken,
+  userNotFound,
 };
