@@ -6,7 +6,7 @@ module.exports = async (err, _req, res, _next) => {
   }
 
   if ('status' in err) {
-    return res.status(StatusCodes[err.status]).json({ message: err.message });
+    return res.status([err.status]).json({ message: err.message });
   }
   
   console.log(err);

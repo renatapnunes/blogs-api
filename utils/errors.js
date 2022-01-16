@@ -1,20 +1,34 @@
+const { StatusCodes } = require('http-status-codes');
+
 const existingEmail = {
-  status: 'CONFLICT',
+  status: StatusCodes.CONFLICT,
   message: 'User already registered',
 };
 
 const unregisteredUser = {
-  status: 'BAD_REQUEST',
+  status: StatusCodes.BAD_REQUEST,
   message: 'Invalid fields',
 };
 
 const invalidPassword = {
-  status: 'FORBIDDEN',
+  status: StatusCodes.FORBIDDEN,
   message: 'Invalid password',
+};
+
+const unauthorized = {
+  status: StatusCodes.UNAUTHORIZED,
+  message: 'Token not found',
+};
+
+const invalidToken = {
+  status: StatusCodes.UNAUTHORIZED,
+  message: 'Expired or invalid token',
 };
 
 module.exports = {
   existingEmail,
   unregisteredUser,
   invalidPassword,
+  unauthorized,
+  invalidToken,
 };
