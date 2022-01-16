@@ -1,8 +1,10 @@
 const express = require('express');
-const userRoutes = require('./userRoutes');
+const userRouter = require('./userRoutes');
+const loginRouter = require('./loginRoutes');
 
 const route = express.Router({ mergeParams: true });
 
-route.use('/user', userRoutes);
+route.use('/user', userRouter);
+route.use('/login', loginRouter);
 
 module.exports = route;

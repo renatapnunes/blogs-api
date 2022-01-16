@@ -1,14 +1,7 @@
-const jwt = require('jsonwebtoken');
 const userSchema = require('../../schemas/user');
 const { User } = require('../../models');
 const { existingEmail } = require('../../utils/errors');
-
-const { JWT_SECRET } = process.env;
-
-const JWT_CONFIG = {
-  expiresIn: '30m', // token expira após 30min
-  algorithm: 'HS256', //  criptografia: HMAC com SHA256 (chaves privadas)
-};
+const tokenGenerator = require('../../utils/tokenGenerator');
 
 module.exports = async (userData) => {
   const { error } = userSchema.validate(userData);
@@ -26,7 +19,7 @@ module.exports = async (userData) => {
 
   delete newUser.password;
 
-  const token = jwt.sign({ data: newUser }, JWT_SECRET, JWT_CONFIG);
+  const token = tokenGenerator(newUser);
 
   return { token };
 };
